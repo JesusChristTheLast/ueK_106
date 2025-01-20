@@ -80,7 +80,16 @@ SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD') AS formatted_date FROM dual;
 ROUND = Rundet eine Zahl auf die angegebene Dezimalstelle.
 SELECT ROUND(123.456, 2) AS rounded; -- Ergebnis: 123.46
 
-CASE =
+CASE =Du kannst für diese Aufgabe auch die CASE-Anweisung verwenden, um eine bedingte Logik zu implementieren. Dies ist eine flexible Alternative zu COALESCE, bei der du explizit angeben kannst, welche Bedingungen geprüft werden sollen.
+Abfrage mit CASE
+SELECT 
+    person_id,
+    CASE 
+        WHEN phone_number IS NOT NULL THEN phone_number
+        WHEN email IS NOT NULL THEN email
+        ELSE 'Nicht vorhanden'
+    END AS contact_info
+FROM people;
 
 FORMAT = Formatiert Zahlen oder Text.
 SELECT FORMAT('%.2f', 1234.567) AS formatted_number; -- Ergebnis: '1234.57'
