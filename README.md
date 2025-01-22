@@ -6,7 +6,12 @@ Bei den Commands, wenn ein Teil in [] steht, z.B. [schema], dann bedeutet das, d
 # KOPIEREN EINER CSV DATEI
 CSV Datei in die Tabelle eintragen. DELIMITER bestimmt die trennung, CSV HEADER zeigt ob ein Header vorhanden ist
 
+# DUMP
 
+# Backup-Recovery
+1. sudo -u postgres createdb employees
+2. sudo -u postgres psql -d [database] < ./db-backup/db-dump-employees-schema20250122.sql
+3.
 
 Path ist der Pfad zu der Datei
 
