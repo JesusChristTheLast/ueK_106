@@ -12,6 +12,10 @@ Path ist der Pfad zu der Datei
 
 ```\copy [person(name, id_ort)] FROM "[PATH]" DELIMITER ';' ENCODING 'UTF-8' CSV HEADER;```
 
+Importieren eines sql scripts (bash, also ubuntu)
+'''psql -U postgres -d datenbank (bei uns postgres) -f /pfad/zur/datei.sql'''
+
+
 ---------------------------------------------------------------------------------------------
 
 # Schlüsselwörter/attribute
