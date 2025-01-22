@@ -29,6 +29,11 @@ RESTRICT	Verhindert die Aktion, wenn es verknüpfte Datensätze gibt (ähnlich w
 ## DML
 
 UPDATE = Die Dateneinträge einer Tabelle verändern
+UPDATE mitarbeiter SET gehalt = 5500 WHERE mitarbeiter_id = 1;
+UPDATE mitarbeiter SET gehalt = 6000, position = 'Senior Entwickler' WHERE mitarbeiter_id = 1;
+UPDATE mitarbeiter SET position = 'Teammitglied';
+UPDATE mitarbeiter SET gehalt = gehalt * 1.1 WHERE position = 'Entwickler';
+
 
 
 ALTER = Eine Tabelle verändern
