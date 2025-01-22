@@ -735,3 +735,69 @@ Dump mit INSERT-Statements anstelle von COPY
 Exportiere die Datenbank, wobei Datensätze mit INSERT anstelle von COPY geschrieben werden:
 
 ```pg_dump --inserts -U postgres -d datenbankname > dump_with_inserts.sql```
+
+Erstelle eine Rolle mit spezifischen Berechtigungen:
+
+CREATE ROLE read_only NOLOGIN;
+
+    NOLOGIN: Diese Rolle kann sich nicht direkt anmelden.
+
+
+Benutzer erstellen
+
+Ein Benutzer ist eine Rolle mit LOGIN-Rechten:
+
+```CREATE USER app_user WITH PASSWORD 'securepassword';```
+
+Zugangsberechtigungen
+Nur lokaler Zugriff erlauben:
+
+Bearbeite die pg_hba.conf (Host-Based Authentication Configuration):
+
+# PostgreSQL erlaubt standardmäßig nur lokale Verbindungen
+local   all   all   md5
+
+Remote-Zugriff erlauben:
+
+    Ändere die pg_hba.conf:
+
+host    all   all   0.0.0.0/0   md5
+
+    0.0.0.0/0 erlaubt Verbindungen von allen IPs. (Sicherheit beachten!)
+
+Passe die postgresql.conf an:
+
+listen_addresses = '*'
+
+PostgreSQL-Dienst neu starten:
+
+sudo systemctl restart postgresql
+
+
+Erteile einer Rolle oder einem Benutzer spezifische Berechtigungen:
+
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO read_only;
+
+*Beispiel für Benutzer und Rollenmanagement:*
+
+CREATE ROLE manager NOLOGIN;                     -- Rolle erstellen
+GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO manager;
+
+CREATE USER john WITH PASSWORD 'password123';    -- Benutzer erstellen
+GRANT manager TO john;                           -- Rolle an Benutzer vergeben
+
+*Berechtigungen entziehen*
+
+Entziehe Berechtigungen von einem Benutzer oder einer Rolle:
+
+REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM read_only;
+REVOKE manager FROM john;
+
+
+
+Befehl	Beschreibung
+CREATE ROLE role_name;	Erstellt eine neue Rolle.
+CREATE USER user_name WITH PASSWORD;	Erstellt einen neuen Benutzer mit Login-Rechten.
+GRANT permission TO role_name;	Erteilt einer Rolle oder einem Benutzer Rechte.
+REVOKE permission FROM role_name;	Entzieht einer Rolle oder einem Benutzer Rechte.
+ALTER ROLE role_name ...	Ändert die Eigenschaften einer Rolle.
