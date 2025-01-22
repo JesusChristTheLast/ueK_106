@@ -163,6 +163,14 @@ FROM employees
 HAVING SUM(salary) > 100000;
 
 Mit GROUP BY:
+(Regel: Spalten im SELECT-Statement
+
+In einer SQL-Abfrage mit GROUP BY gilt:
+
+    Jede Spalte, die nicht Teil einer Aggregatfunktion ist, muss in der GROUP BY-Klausel aufgeführt werden.
+        Beispiel: Wenn du salesperson ausgeben möchtest, muss salesperson in GROUP BY stehen.
+    Spalten, auf die Aggregatfunktionen angewendet werden, müssen nicht in der GROUP BY-Klausel stehen.
+        Beispiel: SUM(sales) darf ohne GROUP BY-Eintrag genutzt werden.)
 SELECT department_id, SUM(salary) AS TotalSalary
 FROM employees
 GROUP BY department_id
@@ -562,7 +570,7 @@ Mit dem INNER JOIN wird noch das department hinzugefügt, um den Namen korrekt a
 ---------------------------------------------------------------------------------------------
 
 ```SELECT DISTINCT m.salary as salary, m.employee_id, m.last_name```
-
+FF
 ```FROM employee e```
 
 ```JOIN employee m ON e.id_manager = m.employee_id```
