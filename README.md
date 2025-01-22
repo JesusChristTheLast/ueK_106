@@ -15,7 +15,13 @@ Path ist der Pfad zu der Datei
 Importieren eines sql scripts (bash, also ubuntu)
 '''psql -U postgres -d datenbank (bei uns postgres) -f /pfad/zur/datei.sql'''
 
-
+ON DELETE: Bestimmt das Verhalten, wenn ein referenzierter Datensatz gelöscht wird.
+ON UPDATE: Bestimmt das Verhalten, wenn ein referenzierter Wert aktualisiert wird.
+CASCADE	Führt dieselbe Operation in der Child-Tabelle aus (z. B. Löschen der verknüpften Zeilen).
+SET NULL	Setzt die Foreign-Key-Spalte in der Child-Tabelle auf NULL.
+SET DEFAULT	Setzt die Foreign-Key-Spalte auf ihren Default-Wert (muss definiert sein).
+NO ACTION	Verhindert die Aktion, wenn es verknüpfte Datensätze gibt (Standardverhalten ohne DEFERRABLE).
+RESTRICT	Verhindert die Aktion, wenn es verknüpfte Datensätze gibt (ähnlich wie NO ACTION).
 ---------------------------------------------------------------------------------------------
 
 # Schlüsselwörter/attribute
@@ -42,6 +48,21 @@ SET = Mich in ein bestimmtes schema versetzen
 SHOW = Ausgabe von Information
 
 CREATE = Tabelle erstellen oder user/rollen erstellen
+CREATE TABLE table_name;
+CREATE SCHEMA schema_name;
+CREATE TABLE table_name (table_id SERIAL PRIMARY KEY, name varchar(50), einstellungsdatum DATE usw.);
+
+CREATE TABLE kunden (
+    kunde_id SERIAL PRIMARY KEY,        -- Eindeutige ID für jeden Kunden
+    vorname VARCHAR(50) NOT NULL,       -- Vorname darf nicht leer sein
+    nachname VARCHAR(50) NOT NULL,      -- Nachname darf nicht leer sein
+    email VARCHAR(100) UNIQUE,          -- E-Mail-Adresse muss eindeutig sein
+    registriert_am DATE DEFAULT CURRENT_DATE, -- Standardwert: heutiges Datum
+    status VARCHAR(20) DEFAULT 'aktiv', -- Standardstatus: 'aktiv'
+    kreditlimit NUMERIC CHECK (kreditlimit >= 0) -- Kreditlimit darf nicht negativ sein
+);
+
+
 
 INSERT = Dateneinträge in eine Tabelle hinzufügen
 
