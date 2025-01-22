@@ -714,3 +714,24 @@ SELECT last_name, id_department FROM employee WHERE id_department = 20 OR id_dep
 Das getrennte Anzeigen von Daten, aber zur Darstellung als ein ganzes funktioniert wie folgt:
 
 ```SELECT 'The salary of ' || last_name || ' after a 10% raise is $' || ROUND(salary * 1.1) AS "New Salary" FROM employee WHERE commission_pct IS NULL;```
+
+DUMP:
+
+Exportiere ein bestimmtes Schema, z. B. public, in eine Datei:
+
+```pg_dump --schema=public -U postgres -d datenbankname > dump_schema.sql```
+
+ Exportiere die Datenbank inklusive Privilegien (Standardverhalten):
+
+```pg_dump -U postgres -d datenbankname > dump_with_privileges.sql```
+ 
+Ohne Privilegien:
+Verwende die Option --no-acl, um Privilegien aus dem Dump zu entfernen:
+
+```pg_dump --no-acl -U postgres -d datenbankname > dump_without_privileges.sql```
+
+Dump mit INSERT-Statements anstelle von COPY
+
+Exportiere die Datenbank, wobei Datensätze mit INSERT anstelle von COPY geschrieben werden:
+
+```pg_dump --inserts -U postgres -d datenbankname > dump_with_inserts.sql```
