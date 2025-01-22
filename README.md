@@ -212,6 +212,7 @@ DQL = Data Query Language
 # Datenbank login
 
 ```sudo -u postgres psql```
+'''psql -h ip-adresse -U postgres'''
 
 ---------------------------------------------------------------------------------------------
 
