@@ -631,7 +631,7 @@ Gibt die Summe der Gehälter in einem department aus oder gibt das max/min aus e
 
 ---------------------------------------------------------------------------------------------
 
-HAVING funktioniert wie ein zweites WHERE
+HAVING funktioniert wie ein zweites WHERE, WHERE kann nicht mit Aggregatfunktionen verwendet werden (kann also nicht nach Aggregatsfunktionen "filtern"
 
 ```SELECT MAX(salary), id_department FROM employee```
 
