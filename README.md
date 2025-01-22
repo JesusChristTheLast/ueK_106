@@ -24,7 +24,16 @@ Importieren eines sql scripts (bash, also ubuntu)
 
 UPDATE = Die Dateneinträge einer Tabelle verändern
 
+
 ALTER = Eine Tabelle verändern
+ALTER TABLE [tableNAME] ADD date [datatype] (also integer, DATE, varchar(x) usw.)
+ALTER TABLE [tablename] RENAME last_name TO first_name
+ALTER TABLE ... ALTER age TYPE (ändert den Datentyp einer Spalte)
+ALTER TABLE ... DROP middle_name; (Spalte entfernen)
+ALTER TABLE ...RENAME TO newTableName; (Spalte umbenennen)
+ALTER TABLE ... ADD CONSTRAINT pk_students(name is hier frei wählbar) PRIMARY KEY (student_id) (fügt primary key "studen_id" hinzu)
+ALTER TABLE ... ADD CONSTRAINT fk_class (name der beschränkung frei wählbar) FOREIGN KEY (class_id) REFERNCES classes(id); (class_id muss es schon geben in der ersten tabelle)
+ALTER TABLE ... DROP CONSTRAINT fk_class; (fk_class ist die bezeichnung für den constraint)
 
 DROP = Ein Schema löschen
 
