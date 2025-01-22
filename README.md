@@ -6,6 +6,8 @@ Bei den Commands, wenn ein Teil in [] steht, z.B. [schema], dann bedeutet das, d
 # KOPIEREN EINER CSV DATEI
 CSV Datei in die Tabelle eintragen. DELIMITER bestimmt die trennung, CSV HEADER zeigt ob ein Header vorhanden ist
 
+
+
 Path ist der Pfad zu der Datei
 
 ```\copy [person(name, id_ort)] FROM "[PATH]" DELIMITER ';' ENCODING 'UTF-8' CSV HEADER;```
