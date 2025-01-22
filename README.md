@@ -656,6 +656,8 @@ HAVING funktioniert wie ein zweites WHERE, WHERE kann nicht mit Aggregatfunktion
 # Good To Know
 
 Mit in kann ich das or skippen und abkürzen
+SELECT last_name, id_department FROM employee WHERE id_department = 20 OR id_department = 50 ORDER BY last_name;
+
 
 ```SELECT last_name, id_department FROM employee WHERE id_department in (20, 50) ORDER BY last_name;```
 
