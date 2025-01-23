@@ -1,5 +1,14 @@
 # ueK_106
 
+
+BEGIN TRANSACTION 
+SAVEPOINT “savepoint_name”
+ROLLBACK / ROLLBACK TO SAVEPOINT “savepoint_name”
+COMMIT
+
+
+
+
 # Wichtige Infos
 Bei den Commands, wenn ein Teil in [] steht, z.B. [schema], dann bedeutet das, dass dort dein eigener Wert stehen muss, also nicht einfach copy pasten
 
