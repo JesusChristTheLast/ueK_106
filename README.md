@@ -1,10 +1,10 @@
 # ueK_106
 
 
-BEGIN TRANSACTION 
-SAVEPOINT “savepoint_name”
-ROLLBACK / ROLLBACK TO SAVEPOINT “savepoint_name”
-COMMIT
+-BEGIN TRANSACTION 
+-SAVEPOINT “savepoint_name”
+-ROLLBACK / ROLLBACK TO SAVEPOINT “savepoint_name”
+-COMMIT
 
 
 
