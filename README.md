@@ -1,13 +1,13 @@
 # ueK_106
 
 
--BEGIN TRANSACTION 
+-BEGIN TRANSACTION start einer transaktion, leute von aussen sehen den Zustand vor und nach der Transaktion
 
 -SAVEPOINT “savepoint_name”
 
 -ROLLBACK / ROLLBACK TO SAVEPOINT “savepoint_name”
 
--COMMIT
+-COMMIT Um Transaktion abzuschliessen
 
 
 
